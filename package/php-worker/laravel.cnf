@@ -1,0 +1,3 @@
+check process queue_listen with pidfile /var/run/laravel/queue.pid
+  start program = "/bin/sh -c 'php artisan queue:listen --memory=128 --tries=3 --sleep=1 & echo $! > /var/run/laravel/queue.pid'"
+  stop  program = "/bin/sh -c 'kill -9 $(cat /var/run/laravel/queue.pid)'"
